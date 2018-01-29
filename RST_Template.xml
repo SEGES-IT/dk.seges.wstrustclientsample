@@ -1,0 +1,28 @@
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope"
+xmlns:a="http://www.w3.org/2005/08/addressing"
+xmlns:u="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd">
+<s:Header>
+<a:Action s:mustUnderstand="1">http://docs.oasis-open.org/ws-sx/ws-trust/200512/RST/Issue</a:Action>
+        <a:MessageID>urn:uuid:a5c542b0-7495-4a13-807c-3042e1d7b3ff</a:MessageID>
+        <a:ReplyTo>
+            <a:Address>http://www.w3.org/2005/08/addressing/anonymous</a:Address>
+        </a:ReplyTo>
+<a:To s:mustUnderstand="1">%1$s</a:To>
+<o:Security s:mustUnderstand="1" xmlns:o="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd">
+<o:UsernameToken>
+<o:Username>%2$s</o:Username>
+<o:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordText">%3$s</o:Password>
+</o:UsernameToken>
+</o:Security>
+</s:Header>
+<s:Body>
+<trust:RequestSecurityToken xmlns:trust="http://docs.oasis-open.org/ws-sx/ws-trust/200512">
+<wsp:AppliesTo xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+  <a:EndpointReference><a:Address>%4$s</a:Address></a:EndpointReference>
+</wsp:AppliesTo>
+<trust:KeyType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Bearer</trust:KeyType>
+<trust:RequestType>http://docs.oasis-open.org/ws-sx/ws-trust/200512/Issue</trust:RequestType>
+<trust:TokenType>http://docs.oasis-open.org/wss/oasis-wss-saml-token-profile-1.1#SAMLV2.0</trust:TokenType>
+</trust:RequestSecurityToken>
+</s:Body>
+</s:Envelope>
